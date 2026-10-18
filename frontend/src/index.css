@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: #070809;
+    color: #f4f4e8;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', sans-serif;
+    color: #f4f4e8;
+    letter-spacing: -0.02em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+}
+
+/* Kyma Dark Mode Hairline Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070809;
+  border-left: 1px solid #1c1c1c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c1c1c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ccff00;
+}
+
+/* Architectural grid rule helpers */
+.border-grid {
+  border-color: #1c1c1c;
+}
+
+.border-grid-strong {
+  border-color: #262626;
+}
