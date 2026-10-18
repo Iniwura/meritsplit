@@ -90,9 +90,9 @@ export const RubricOverview: React.FC<RubricOverviewProps> = ({
           <div className="flex flex-col items-start lg:items-end gap-2 shrink-0">
             <button
               onClick={onFreezeRubric}
-              disabled={isFreezing || registeredCount === 0}
+              disabled={isFreezing || registeredCount < 2}
               className={`px-6 py-3 font-mono text-xs uppercase font-bold tracking-widest transition-all duration-200 flex items-center gap-2 cursor-pointer rounded-none ${
-                !isFreezing && registeredCount > 0
+                !isFreezing && registeredCount >= 2
                   ? 'bg-[#ccff00] text-[#070809] hover:bg-white shadow-[0_0_15px_rgba(204,255,0,0.15)]'
                   : 'bg-[#141414] text-[#444] border border-[#1c1c1c] cursor-not-allowed'
               }`}
@@ -109,6 +109,11 @@ export const RubricOverview: React.FC<RubricOverviewProps> = ({
                 </>
               )}
             </button>
+            {registeredCount < 2 && (
+              <span className="text-[10px] font-mono text-[#686868]">
+                Requires ≥2 registered contributors to split
+              </span>
+            )}
             {activeAccount && !isCreator && (
               <span className="text-[11px] font-mono text-[#686868]">
                 Signer:{' '}

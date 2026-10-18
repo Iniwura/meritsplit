@@ -89,6 +89,11 @@ export const DeploySplit: React.FC<DeploySplitProps> = ({
       return;
     }
 
+    if (contributors.length >= 10) {
+      setContributorError('Maximum 10 contributors per split to prevent GenVM execution timeouts.');
+      return;
+    }
+
     if (contributors.some((c) => c.toLowerCase() === trimmed.toLowerCase())) {
       setContributorError('Address is already present in the contributor list.');
       return;
@@ -124,8 +129,8 @@ export const DeploySplit: React.FC<DeploySplitProps> = ({
       return;
     }
 
-    if (contributors.length === 0) {
-      toast.error('Contributors required', { description: 'Please register at least one contributor address.' });
+    if (contributors.length < 2) {
+      toast.error('At least 2 contributors required', { description: 'A split contract requires at least two registered contributors.' });
       return;
     }
 

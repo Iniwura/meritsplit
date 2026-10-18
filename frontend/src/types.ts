@@ -68,4 +68,5 @@ export interface ProjectStateResponse {
   total_basis_points: number;
   is_exact_10000: boolean;
   assessment_notes: string;
+  max_contributors?: number;
 }

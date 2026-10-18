@@ -261,6 +261,11 @@ export const Dashboard: React.FC<DashboardProps> = ({
       return;
     }
 
+    if (registeredContributors.length >= 10) {
+      toast.error('Limit reached', { description: 'Maximum 10 contributors per split to prevent GenVM execution timeouts.' });
+      return;
+    }
+
     try {
       toast.loading('Registering contributor on-chain...', { id: 'reg-tx' });
       if (client) {
